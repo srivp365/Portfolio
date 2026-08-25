@@ -1,0 +1,112 @@
+---
+import { Font } from "astro:assets";
+const bg = "#0e1011";
+const bg_panel = "#141618"; 
+const text =  "#EDEBE6";
+const text_dim = "#94969B";
+const text_faint = "#5A5D62";
+const accent = "#FF4B12";
+const accent_dim = "#a8390f";
+const accent_soft = "rgba(255,75,18,0.13)";
+const olive = "#848c78";
+const radius = "2px";
+const disp = "'Barlow Condensed', sans-serif";
+const mono = "'JetBrains Mono',monospace";
+const body = "'Inter',sans-serif";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+    <Font cssVariable="--font-barlow" preload />
+    <Font cssVariable="--font-inter" preload />
+    <Font cssVariable="--font-jetbrains" />
+		<title>Sri's Portfolio</title>
+	</head>
+	<body>
+<style define:vars={{ bg, text, text_dim }}>
+      body {
+        background: var(--bg); 
+        margin: 0px;
+      }
+      .navbar {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 16px 32px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1;
+      } 
+       
+      
+
+      nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 36px;
+      } 
+
+      .navbar p {
+        font-size: 14px; 
+        color: var(--text_dim);
+        font-family: var(--font-jetbrains);
+        margin: 0px;
+        text-transform: uppercase;
+      }
+
+      header {
+        border-bottom: 1px solid;
+        border-color: #2B2E31;
+      }
+
+
+      .status .dot {
+        display: inline-block;
+        margin: 0px 10px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%; 
+        background: #5fd97a; 
+        animation: blink 2.4s ease-in-out infinite; 
+      }
+
+      .status {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+        
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: .25; }
+      }
+
+    </style>
+    
+
+    <header> 
+      <div class="navbar">
+      <span style = {{width: "24px", height: "24px", backgroundColor: "#fff", borderRadius: "8px"}}></span>
+      <nav>
+          <p> Work </p>
+          <p> Log </p>
+          <p> Info </p>
+          <p> Contact </p>
+      </nav>
+      <status class="status">
+      <span class="dot"></span><p>v2.0.0 latest commit</p>
+      </status>
+      </div>
+    </header>
+	</body>
+</html>
