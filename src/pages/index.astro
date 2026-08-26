@@ -34,8 +34,18 @@ const line = "#2B2E31";
     <body>
 <style define:vars={{ bg, text, text_dim, text_faint, accent, line}}>
 
-      /* general styles */
+      /* --- CORE REVEAL ANIMATIONS --- */
+      @keyframes sectionReveal {
+        0% { opacity: 0; transform: translateY(15px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      
+      @keyframes navReveal {
+        0% { opacity: 0; transform: translateY(-10px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
 
+      /* general styles */
       body {
         background: var(--bg); 
         margin: 0px;
@@ -54,7 +64,17 @@ const line = "#2B2E31";
         padding: 120px 0;
         border-bottom: 1px solid var(--line);
         position: relative;
+        /* Default state for reveal */
+        opacity: 0;
+        animation: sectionReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       }
+      
+      /* Staggered entry */
+      .hero { animation-delay: 0.1s; }
+      .marquee { animation-delay: 0.2s; opacity: 0; animation: sectionReveal 0.6s ease forwards; }
+      #work { animation-delay: 0.3s; }
+      #info { animation-delay: 0.4s; }
+      #contact { animation-delay: 0.5s; }
 
       .section-head {
         display: flex;
@@ -103,6 +123,8 @@ const line = "#2B2E31";
         justify-content: space-between;
         align-items: center;
         flex: 1;
+        opacity: 0;
+        animation: navReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
       } 
 
       nav {
@@ -122,6 +144,32 @@ const line = "#2B2E31";
         margin: 0px;
         padding: 0px;
         text-transform: uppercase;
+        text-decoration: none;
+        position: relative;
+        transition: color 0.2s ease;
+      }
+      
+      /* Hover Interaction: Color change */
+      .navbar a:hover {
+        color: #EDEBE6;
+      }
+      
+      /* Hover Interaction: Underline Spawn */
+      .navbar a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: -4px;
+        left: 0;
+        background-color: var(--accent);
+        transform: scaleX(0);
+        transform-origin: bottom center;
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      
+      .navbar a:hover::after {
+        transform: scaleX(1);
       }
 
       header {
@@ -343,6 +391,32 @@ const line = "#2B2E31";
       .contact-links {
         font-family: var(--font-jetbrains);
         color: var(--text_dim);
+        text-decoration: none;
+        position: relative;
+        transition: color 0.2s ease;
+      }
+      
+      /* Hover Interaction: Color change */
+      .contact-links:hover {
+        color: #EDEBE6;
+      }
+      
+      /* Hover Interaction: Underline Spawn */
+      .contact-links::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: -4px;
+        left: 0;
+        background-color: var(--accent);
+        transform: scaleX(0);
+        transform-origin: bottom center;
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      
+      .contact-links:hover::after {
+        transform: scaleX(1);
       }
 
       /* written by ai */
@@ -373,26 +447,56 @@ const line = "#2B2E31";
         border: 1px solid var(--line);
         margin-top: 12px;
       }
+      
       .work-card {
         position: relative;
         background: var(--bg);
         padding: 28px;
         text-decoration: none;
         display: block;
+        /* Smooth transitions for button effect */
+        transition: background-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       }
-      .work-card:hover { background: var(--bg_panel, #141618); }
+      
+      /* Hover Interaction: Button Background Change + Slight Lift */
+      .work-card:hover { 
+        background: var(--bg_panel, #141618); 
+      }
+      
       .work-card::before, .work-card::after {
         content: ""; position: absolute; width: 12px; height: 12px;
-        border: 1.5px solid var(--accent); opacity: 0; transition: opacity .15s;
+        border: 1.5px solid var(--accent); opacity: 0; transition: all .15s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .work-card::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
       .work-card::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
-      .work-card:hover::before, .work-card:hover::after { opacity: 1; }
+      
+      /* EXISTING Corner frame animation - made smoother */
+      .work-card:hover::before, .work-card:hover::after { 
+        opacity: 1; 
+        transform: scale(1.05); /* Extra subtle pop on corners */
+      }
+      
       .work-id { font-family: var(--font-jetbrains); font-size: 11px; color: var(--accent); letter-spacing: .1em; }
-      .work-title { font-family: var(--font-barlow); font-size: 30px; text-transform: uppercase;
-        color: var(--text); margin: 8px 0 6px; font-weight: 700; }
+      
+      .work-title { 
+        font-family: var(--font-barlow); font-size: 30px; text-transform: uppercase;
+        color: var(--text); margin: 8px 0 6px; font-weight: 700;
+        transition: color 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      
+      /* Hover Interaction: Title color change + Shift */
+      .work-card:hover .work-title {
+        color: #fff;
+        transform: translateX(4px);
+      }
+      
       .work-cat { font-family: var(--font-jetbrains); font-size: 11px; color: var(--text_faint);
-        text-transform: uppercase; letter-spacing: .08em; }
+        text-transform: uppercase; letter-spacing: .08em; transition: color 0.2s ease; }
+      
+      .work-card:hover .work-cat {
+        color: var(--text_dim);
+      }
+
       @media (max-width: 720px) { .work-table { grid-template-columns: 1fr; } }
 
       .foot-row {
@@ -405,14 +509,8 @@ const line = "#2B2E31";
         flex-wrap:wrap;
         gap:10px;
       }
-
-
-
-
-
     </style>
     
-
     <header> 
       <div class="navbar">
       <span style = {{width: "24px", height: "24px", backgroundColor: "#fff", borderRadius: "8px"}}></span>
@@ -421,9 +519,9 @@ const line = "#2B2E31";
           <a href="#info">Info</a>
           <a href="#contact">Contact</a>
       </nav>
-      <status class="status">
+      <div class="status">
       <span class="dot"></span><p>v2.0.0 latest commit</p>
-      </status>
+      </div>
       </div>
     </header>
 
@@ -450,7 +548,7 @@ const line = "#2B2E31";
       </div>
     </section>
 
-    <!-- This was provided by AI -->
+    <!-- This marquee doesn't have links, so it doesn't need underlining animation, but it inherits slide-in entry -->
     <div class="marquee">
       <div class="marquee-track">
         <span>REACT <em>//</em> EMBEDDED SYSTEMS <em>//</em> SWIFT <em>//</em> CAD <em>//</em> TYPESCRIPT <em>//</em> PCB DESIGN <em>//</em> SWIFT UI <em>//</em> RUST <em>//</em></span>
@@ -493,10 +591,10 @@ const line = "#2B2E31";
       <div class="contact-container">
       <div>
        <h1>Let's build <br> something cool <br> together!</h1>
-        <a class="accented_text" style="font-family: var(--font-jetbrains)" href="mailto:srivprasanna@gmail.com">
+        <a class="contact-links accented_text" style="font-family: var(--font-jetbrains)" href="mailto:srivprasanna@gmail.com">
          srivprasanna@gmail.com
          <!-- AI made the svg -->
-         <svg width="14" height="14" viewBox="0 0 24 24">
+         <svg width="14" height="14" viewBox="0 0 24 24" style="transition: transform 0.2s ease;">
            <path d="M5 19L19 5M19 5H8M19 5V16" stroke="currentColor" stroke-width="2" fill="none"/>
          </svg>
        </a>
@@ -505,21 +603,21 @@ const line = "#2B2E31";
         <a class= "contact-links" href="_blank">
           Github
           <!-- AI made the svg -->
-         <svg width="14" height="14" viewBox="0 0 24 24">
+         <svg width="14" height="14" viewBox="0 0 24 24" style="transition: transform 0.2s ease;">
            <path d="M5 19L19 5M19 5H8M19 5V16" stroke="currentColor" stroke-width="2" fill="none"/>
          </svg>
         </a> 
         <a class= "contact-links" href="_blank">
           Linkedin 
           <!-- AI made the svg -->
-         <svg width="14" height="14" viewBox="0 0 24 24">
+         <svg width="14" height="14" viewBox="0 0 24 24" style="transition: transform 0.2s ease;">
            <path d="M5 19L19 5M19 5H8M19 5V16" stroke="currentColor" stroke-width="2" fill="none"/>
          </svg>
         </a> 
         <a class= "contact-links" href="_blank">
           Resume 
           <!-- AI made the svg -->
-         <svg width="14" height="14" viewBox="0 0 24 24">
+         <svg width="14" height="14" viewBox="0 0 24 24" style="transition: transform 0.2s ease;">
            <path d="M5 19L19 5M19 5H8M19 5V16" stroke="currentColor" stroke-width="2" fill="none"/>
          </svg>
         </a> 
@@ -537,7 +635,5 @@ const line = "#2B2E31";
     </footer>
 
     
-
-
     </body>
 </html>
