@@ -408,7 +408,6 @@ const line = "#2B2E31";
       <span style = {{width: "24px", height: "24px", backgroundColor: "#fff", borderRadius: "8px"}}></span>
       <nav>
           <a href="#work">Work</a>
-          <a href="#blog">Log</a>
           <a href="#info">Info</a>
           <a href="#contact">Contact</a>
       </nav>
@@ -463,57 +462,7 @@ const line = "#2B2E31";
       </div>
     </section>
 
-<!-- Main Log List Section -->
-<section id="log">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>Field<br>Log</h2>
-      <div class="section-num">ENTRIES 001 — 024<br>NOTES FROM THE BENCH</div>
-    </div>
-
-    <!-- Filter & Search Bar -->
-    <div class="filter-bar reveal">
-      <div class="filter-pills" data-target="log">
-        <button class="pill active" data-filter="all">All</button>
-        <button class="pill" data-filter="hardware">Hardware</button>
-        <button class="pill" data-filter="mobile">Mobile</button>
-        <button class="pill" data-filter="product">Product</button>
-        <button class="pill" data-filter="firmware">Firmware</button>
-        <button class="pill" data-filter="design">Design</button>
-      </div>
-      <input type="text" id="logSearch" class="search-box" placeholder="Search entries…">
-    </div>
-    
-    <div class="count-line" id="logCount" style="margin-bottom:12px;">24 / 24 shown</div>
-
-    <!-- Dynamic List Container -->
-    <div class="log-list reveal" id="logList"></div>
-    <div class="empty-state" id="logEmpty">No entries match that search.</div>
-  </div>
-</section>
-
-<!-- Full Article Reading Overlay -->
-<div class="article-overlay" id="articleOverlay">
-  <div class="article-progress"><div class="article-progress-fill" id="articleProgressFill"></div></div>
-  <div class="article-topbar">
-    <button class="article-back" id="articleBack">
-      <svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-      Back to log
-    </button>
-    <div class="status" id="articleReadTime">4 MIN READ</div>
-  </div>
-  <div class="article-wrap">
-    <div class="article-meta-row"><span class="article-cat" id="articleCat"></span><span id="articleDate"></span></div>
-    <h1 class="post-title" id="articleTitle"></h1>
-    <div class="post-body" id="articleBody"></div>
-    <div class="article-tags" id="articleTags"></div>
-    <div class="article-nav">
-      <button class="prev-btn" id="articlePrev"><span class="nav-label">← Previous</span><span id="articlePrevTitle"></span></button>
-      <button class="next-btn" id="articleNext"><span class="nav-label">Next →</span><span id="articleNextTitle"></span></button>
-    </div>
-  </div>
-</div>
-    <section id="info">
+   <section id="info">
 <h1 class="section-header">About <br> me</h1>
       <div class="info-container">
         <p> <span style="color: var(--text);">I'm Sri </span>— a computer engineering background, split between shipping consumer software and building the physical objects that go alongside it. I like problems that touch both sides: an app that's only as good as the sensor feeding it, a device that's only as good as its companion screen. <br> <br> <br>
