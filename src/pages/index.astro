@@ -51,7 +51,6 @@ const line = "#2B2E31";
 
       section {
         padding: 120px 0;
-        border-bottom: 1px solid var(--line); 
         border-top: 1px solid var(--line);
         position: relative;
       }
@@ -258,8 +257,8 @@ const line = "#2B2E31";
         color: #EDEBE6;
         line-height: 0.90;
         font-family: var(--font-barlow);
-        font-size: clamp(22px, 4vw, 102px);
-        margin-bottom: 15px;
+        font-size: clamp(18px, 3vw, 102px);
+        margin: 3% 0%;
         text-transform: uppercase;
         font-weight: 800;
       }
@@ -298,6 +297,54 @@ const line = "#2B2E31";
           gap: 48px; /* Shrinks the gap between the stacked elements */
         }
       }
+
+      /* contact */
+
+
+      #contact {
+        display: flex;
+        flex-direction: column;
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 16px 48px;
+        display: flex;
+      }
+
+      .contact-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 40px;
+ 
+      }
+       #contact h1 {
+        color: #EDEBE6;
+        line-height: 0.90;
+        font-family: var(--font-barlow);
+        font-size: clamp(52px, 6vw, 152px);
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      .contact-links {
+        font-family: var(--font-jetbrains);
+        color: var(--text_dim);
+      }
+
+      /* written by ai */
+      .contact-link-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* Pushes the text flush to the right */
+        gap: 8px; /* Adds a nice gap between each link */
+      }
+
+
+
+
 
     </style>
     
@@ -358,7 +405,7 @@ const line = "#2B2E31";
 
 
     <section id="info">
-      <h1 class="section-header">About me</h1>
+<h1 class="section-header">About <br> me</h1>
       <div class="info-container">
         <p> <span style="color: var(--text);">I'm Sri </span>— a computer engineering background, split between shipping consumer software and building the physical objects that go alongside it. I like problems that touch both sides: an app that's only as good as the sensor feeding it, a device that's only as good as its companion screen. <br> <br> <br>
           Most projects start on a breadboard or in a sketchbook before they ever reach a design tool. I try to keep that order — the constraints of the real material should shape the interface, not the other way around. <br> <br> <br>
@@ -369,6 +416,53 @@ const line = "#2B2E31";
     </section>
 
 
+    <section id="contact">
+      <div class="contact-container">
+      <div>
+       <h1>Let's build <br> something cool <br> together!</h1>
+        <a class="accented_text" style="font-family: var(--font-jetbrains)" href="mailto:srivprasanna@gmail.com">
+         srivprasanna@gmail.com
+         <!-- AI made the svg -->
+         <svg width="14" height="14" viewBox="0 0 24 24">
+           <path d="M5 19L19 5M19 5H8M19 5V16" stroke="currentColor" stroke-width="2" fill="none"/>
+         </svg>
+       </a>
+      </div>
+      <div class="contact-link-container"> 
+        <a class= "contact-links" href="_blank">
+          Github
+          <!-- AI made the svg -->
+         <svg width="14" height="14" viewBox="0 0 24 24">
+           <path d="M5 19L19 5M19 5H8M19 5V16" stroke="currentColor" stroke-width="2" fill="none"/>
+         </svg>
+        </a> 
+        <a class= "contact-links" href="_blank">
+          Github
+          <!-- AI made the svg -->
+         <svg width="14" height="14" viewBox="0 0 24 24">
+           <path d="M5 19L19 5M19 5H8M19 5V16" stroke="currentColor" stroke-width="2" fill="none"/>
+         </svg>
+        </a> 
+        <a class= "contact-links" href="_blank">
+          Github
+          <!-- AI made the svg -->
+         <svg width="14" height="14" viewBox="0 0 24 24">
+           <path d="M5 19L19 5M19 5H8M19 5V16" stroke="currentColor" stroke-width="2" fill="none"/>
+         </svg>
+        </a> 
+        <a class= "contact-links" href="_blank">
+          Github
+          <!-- AI made the svg -->
+         <svg width="14" height="14" viewBox="0 0 24 24">
+           <path d="M5 19L19 5M19 5H8M19 5V16" stroke="currentColor" stroke-width="2" fill="none"/>
+         </svg>
+        </a> 
+      </div>
+      </div>
+    </section>
+
     
+
+
 	</body>
 </html>
