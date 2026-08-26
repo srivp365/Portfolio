@@ -1,0 +1,56 @@
+---
+import { projects } from "../../data/projects.js";
+
+export function getStaticPaths() {
+  return projects.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+
+const { p } = Astro.props;
+const bg = "#0e1011", bg_panel = "#141618", text = "#EDEBE6", text_dim = "#94969B",
+  text_faint = "#5A5D62", accent = "#FF4B12", accent_dim = "#a8390f", line = "#2B2E31";
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>{p.title} — Case File</title>
+</head>
+<body>
+<style define:vars={{ bg, bg_panel, text, text_dim, text_faint, accent, accent_dim, line }}>
+  body { background: var(--bg); margin: 0; font-family: 'Inter', sans-serif; color: var(--text); }
+  a { color: inherit; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 100px 32px 60px; }
+  .back { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--text_dim); text-decoration: none; }
+  .back:hover { color: var(--accent); }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--text_dim); margin: 28px 0 14px; }
+  .eyebrow em { color: var(--accent); font-style: normal; }
+  h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; text-transform: uppercase;
+    font-size: clamp(48px, 10vw, 100px); line-height: .9; margin: 0; }
+  .desc { max-width: 620px; margin-top: 24px; font-size: 16px; line-height: 1.7; color: var(--text_dim); }
+  .frame { position: relative; border: 1px solid var(--line); background: var(--bg_panel);
+    margin-top: 48px; height: 340px; overflow: hidden; }
+  .frame::before, .frame::after, .frame i::before, .frame i::after {
+    content: ""; position: absolute; width: 14px; height: 14px; border: 1.5px solid var(--accent); }
+  .frame::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .frame::after { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+  .frame i::before { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+  .frame i::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+  .glyph { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 120px; opacity: .9; }
+  .tags { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+  .tags span { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .08em;
+    text-transform: uppercase; padding: 6px 12px; border: 1px solid var(--line); color: var(--text_dim); }
+</style>
+
+  <div class="wrap">
+    <a class="back" href="/#work">&larr; Back to work</a>
+    <div class="eyebrow">[ CASE_FILE // <em>{p.id}</em> // {p.cat} ]</div>
+    <h1>{p.title}</h1>
+    <p class="desc">{p.desc}</p>
+    <div class="frame"><i></i><span class="glyph">{p.glyph}</span></div>
+    <div class="tags">{p.tags.map((t) => <span>{t}</span>)}</div>
+  </div>
+</body>
+</html>

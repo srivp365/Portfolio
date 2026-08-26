@@ -1,0 +1,38 @@
+export const projects = [
+  {
+    slug: "flight-computer-pcb",
+    id: "01",
+    cat: "Hardware / Firmware",
+    title: "Flight Computer PCB",
+    desc: "DIY flight computer built in KiCad around an RP2040, tracking altitude and orientation for high-power rocketry.",
+    tags: ["KiCad", "RP2040", "BMP388", "ICM-42688"],
+    glyph: "FC",
+  },
+  {
+    slug: "lol-coaching-tool",
+    id: "02",
+    cat: "Full Stack",
+    title: "LoL Coaching Tool",
+    desc: "A League of Legends coaching platform deployed at lol.sriv.me, surfacing match data to help players improve.",
+    tags: ["FastAPI", "PostgreSQL", "React", "Oracle Cloud"],
+    glyph: "LC",
+  },
+  {
+    slug: "press",
+    id: "03",
+    cat: "Backend / Rust",
+    title: "Press",
+    desc: "A Rust/Axum news aggregator with a multi-binary workspace for ingestion, API, and AI summarisation.",
+    tags: ["Rust", "Axum", "pgvector", "Voyage AI"],
+    glyph: "PR",
+  },
+  {
+    slug: "portfolio-site",
+    id: "04",
+    cat: "Web / Design",
+    title: "Portfolio Site",
+    desc: "This site — built in Astro with React islands, GSAP, Lenis scroll, and expandable project cards.",
+    tags: ["Astro", "React", "GSAP", "Lenis"],
+    glyph: "PF",
+  },
+];
