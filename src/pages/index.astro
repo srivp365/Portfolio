@@ -52,8 +52,42 @@ const line = "#2B2E31";
 
       section {
         padding: 120px 0;
-        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
         position: relative;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 64px;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .section-head h2 {
+        color: #EDEBE6;
+        line-height: 0.90;
+        font-family: var(--font-barlow);
+        font-size: clamp(36px, 5vw, 64px);
+        text-transform: uppercase;
+        font-weight: 800;
+        margin: 0;
+      }
+
+      .section-num {
+        font-family: var(--font-jetbrains);
+        font-size: 13px;
+        color: var(--text_faint);
+        text-align: right;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+      }
+
+      .wrap {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 32px;
       }
 
       /* navbar styles */ 
@@ -245,15 +279,7 @@ const line = "#2B2E31";
       }
   
       /* work */
-      #work {
-        display: flex;
-        flex-direction: column;
-        max-width: 1240px;
-        margin: 0 auto;
-        padding: 16px 48px;
-        display: flex;
-      }
-
+      
       .section-header {
         color: #EDEBE6;
         line-height: 0.90;
@@ -265,16 +291,7 @@ const line = "#2B2E31";
       }
 
       /* info */
-      #info {
-        display: flex;
-        flex-direction: column;
-        max-width: 1240px;
-        margin: 0 auto;
-        padding: 16px 48px;
-        display: flex;
-
-      }
-
+      
       #info h1 {
         font-family: var(--font-barlow);
         color: var(--text)
@@ -302,14 +319,7 @@ const line = "#2B2E31";
       /* contact */
 
 
-      #contact {
-        display: flex;
-        flex-direction: column;
-        max-width: 1240px;
-        margin: 0 auto;
-        padding: 16px 48px;
-        display: flex;
-      }
+      
 
       .contact-container {
         display: flex;
@@ -450,6 +460,7 @@ const line = "#2B2E31";
 
 
     <section id="work">
+      <div class="wrap">
       <h1 class="section-header">Selected <br> Work</h1>
       <div class="work-table">
         {projects.map((p) => (
@@ -460,9 +471,11 @@ const line = "#2B2E31";
           </a>
         ))}
       </div>
+        </div>
     </section>
 
    <section id="info">
+      <div class="wrap">
 <h1 class="section-header">About <br> me</h1>
       <div class="info-container">
         <p> <span style="color: var(--text);">I'm Sri </span>— a computer engineering background, split between shipping consumer software and building the physical objects that go alongside it. I like problems that touch both sides: an app that's only as good as the sensor feeding it, a device that's only as good as its companion screen. <br> <br> <br>
@@ -471,10 +484,12 @@ const line = "#2B2E31";
         </p>
         <Image src={profilepic} alt="A bird sitting on a nest of eggs." width="420" height="420" style={{borderRadius: "16px", marginBottom: "18%"}}/>
       </div>
+        </div>
     </section>
 
 
     <section id="contact">
+      <div class="wrap">
       <div class="contact-container">
       <div>
        <h1>Let's build <br> something cool <br> together!</h1>
@@ -517,11 +532,12 @@ const line = "#2B2E31";
         </a> 
       </div>
       </div>
+      </div>
     </section>
 
 
     <footer>
-      <div class="wrap foot-row">
+      <div class="foot-row">
         <span>© 2026 SRIVATHSAN PRASANNA — ALL RIGHTS RESERVED</span>
         <span>BUILT IN TORONTO — REVISED: 2026.08.26</span>
       </div>
